@@ -20,7 +20,7 @@
         <TextBox x:Name="Naming" Grid.Row="0" Margin="140,5,140,5"/>
 
         <TextBlock Grid.Row="1" Margin="5,5,5,5" Text="Image :" FontSize="15" FontWeight="Bold"/>
-        <TextBox x:Name="ImagePath" Grid.Row="1" Margin="70,5,65,5"/>
+        <TextBox x:Name="ImagePath" Grid.Row="1" Margin="70,5,65,5" IsEnabled="False"/>
         <Button Grid.Row="1" HorizontalAlignment="Right" Content="Share..." FontSize="15" FontWeight="Bold" Margin="5" Click="Share_Click"/>
 
         <TextBlock Grid.Row="2" Text="Ingredients :" Margin="5" FontSize="15" FontWeight="Bold"/>

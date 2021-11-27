@@ -52,7 +52,7 @@ namespace Exam
             ID++;
             infos.Add(addWindow.recipe);
             this.ListOfRecipes.ItemsSource = infos;
-            this.ListOfRecipes.Items.Refresh();
+            CollectionViewSource.GetDefaultView(ListOfRecipes.ItemsSource).Refresh();
             //ListBoxItem listBoxItem = new ListBoxItem();
             // listBoxItem.Content = addWindow.recipe.name;     
             // listBoxItem.Name = $"{ID}";
@@ -65,7 +65,7 @@ namespace Exam
         {
 
             infos.RemoveAt(this.ListOfRecipes.Items.IndexOf(this.ListOfRecipes.SelectedItem));
-            this.ListOfRecipes.Items.Refresh();
+            CollectionViewSource.GetDefaultView(ListOfRecipes.ItemsSource).Refresh();
         }
     }
 
