@@ -24,10 +24,25 @@ namespace Exam
         {
             InitializeComponent();
             DataContext = this;
+            ListOfRecipes.ItemsSource = infos;
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ListOfRecipes.ItemsSource);
+            view.Filter = UserFilter;
         }
+        int ID = 0;
 
         List<RecipeInfo> infos = new List<RecipeInfo>();
-        int ID = 0;
+        private bool UserFilter(object item)
+        {
+            if (String.IsNullOrEmpty(FilterBox.Text))
+                return true;
+            else
+                return ((item as RecipeInfo).Ingridients.IndexOf(FilterBox.Text,StringComparison.OrdinalIgnoreCase)>=0);
+        }
+
+        private void FilterBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(ListOfRecipes.ItemsSource).Refresh();
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
